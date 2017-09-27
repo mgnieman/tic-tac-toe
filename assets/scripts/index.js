@@ -12,8 +12,7 @@ $(() => {
   setAPIOrigin(location, config)
 })
 $('#box0').click(function () {
-  // $('box0').text('X')
-  Element.val('X')
+  $('#box0').val('X')
   console.log('you clicked box0')
 })
 $('#box1').click(function () {
