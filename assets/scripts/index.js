@@ -7,6 +7,8 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
+const logic = require('./logic.js')
+const array = logic.array
 
 $(() => {
   setAPIOrigin(location, config)
@@ -17,6 +19,9 @@ $(() => {
 
 const firstClick = function (event) {
   $(event.target).html('X')
+  // array[event.target] = 'X'
+  array[event.target.id] = 'X'
+  console.log(event.target.id.charAt(3))
 }
 $('.box').click(firstClick)
 

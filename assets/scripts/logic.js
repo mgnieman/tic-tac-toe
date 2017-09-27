@@ -12,12 +12,13 @@
 // 1,4,7
 // 2,5,8
 
-const x = 'x'
-const o = 'o'
+// const x = 'x'
+// const o = 'o'
+// const b = 'abracadabra'
 // const array = [x, o, x, o, x, o, x, o, x]
 // const array = [x, x, x, x, x, x, x, x, x]
-const array = [x, o, o, o, x, o, o, o, o]
-// create arrays of length three (those listed above)
+// const array = [x, b, o, o, x, o, o, o, o]
+const array = []
 const same = function (a, b, c) {
   if (a === b && b === c) {
     // console.log('WIN!')
@@ -37,6 +38,12 @@ const checkForWin = function () {
   console.log('first column', same(array[0], array[3], array[6]))
   console.log('middle colum ', same(array[1], array[4], array[7]))
   console.log('right columnm', same(array[2], array[5], array[8]))
+  // RUNNING THE LINE BELOW REMOVED THE BOXES
+  // console.log('array[' + array.indexOf(event.target) + ']')
 }
 
 checkForWin()
+
+module.exports = {
+  array
+}
