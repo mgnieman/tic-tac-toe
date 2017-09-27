@@ -11,33 +11,8 @@ const events = require('./auth/events')
 $(() => {
   setAPIOrigin(location, config)
 })
-$('#box0').click(function () {
-  $('#box0').val('X')
-  console.log('you clicked box0')
-})
-$('#box1').click(function () {
-  console.log('you clicked box1')
-})
-$('#box2').click(function () {
-  console.log('you clicked box2')
-})
-$('#box3').click(function () {
-  console.log('you clicked box3')
-})
-$('#box4').click(function () {
-  console.log('you clicked box4')
-})
-$('#box5').click(function () {
-  console.log('you clicked box5')
-})
-$('#box6').click(function () {
-  console.log('you clicked box6')
-})
-$('#box7').click(function () {
-  console.log('you clicked box7')
-})
-$('#box8').click(function () {
-  console.log('you clicked box8')
+$('.box').click(function (event) {
+  $(event.target).html('X')
 })
 
 $(() => {
