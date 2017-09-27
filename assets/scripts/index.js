@@ -11,9 +11,14 @@ const events = require('./auth/events')
 $(() => {
   setAPIOrigin(location, config)
 })
-$('.box').click(function (event) {
+// $('.box').click(function (event) {
+//   $(event.target).html('X')
+// })
+
+const firstClick = function (event) {
   $(event.target).html('X')
-})
+}
+$('.box').click(firstClick)
 
 $(() => {
   events.addHandlers()
