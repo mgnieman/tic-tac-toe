@@ -13,18 +13,41 @@ const array = logic.array
 $(() => {
   setAPIOrigin(location, config)
 })
-// $('.box').click(function (event) {
-//   $(event.target).html('X')
-// })
 
-const firstClick = function (event) {
-  $(event.target).html('X')
-  // array[event.target] = 'X'
-  array[event.target.id] = 'X'
-  console.log(event.target.id.charAt(3))
+const countXs = function (arr) {
+  let xCount = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 'X') {
+      xCount++
+    }
+  }
+  return xCount
 }
-$('.box').click(firstClick)
-
+const countOs = function (arr) {
+  let oCount = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 'O') {
+      oCount++
+    }
+  }
+  return oCount
+}
+function chooseLetter (event) {
+  countXs()
+  countOs()
+  if (countXs() === countOs()) {
+    $(event.target).html('X')
+    array[event.target.id.charAt(3)] = 'X'
+    console.log(event.target.id.charAt(3))
+    logic.checkForWin()
+  } else {
+    $(event.target).html('O')
+    array[event.target.id.charAt(3)] = 'O'
+    console.log(event.target.id.charAt(3))
+    logic.checkForWin()
+  }
+}
+$('.box').click(chooseLetter)
 $(() => {
   events.addHandlers()
 })
