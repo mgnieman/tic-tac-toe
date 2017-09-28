@@ -1,48 +1,60 @@
 'use strict'
 
+const getFormFields = require(`../../../lib/get-form-fields`)
+
 const api = require('./api')
 const ui = require('./ui')
 
-// const onSignUp = function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.signUp(data)
-//     .then(ui.signUpSuccess)
-//     .catch(ui.signUpFailure)
-// }
-// const onSignIn = function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.signIn(data)
-//     .then(ui.signInSuccess)
-//     .catch(ui.signInFailure)
-// }
-// const onChangePassword = function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.changePassword(data)
-//     .then(ui.changePasswordSuccess)
-//     .catch(ui.changePasswordFailure)
-// }
-// const onSignOut = function (event) {
-//   event.preventDefault()
-//   api.signOut()
-//     .then(ui.signOutSuccess)
-//     .catch(ui.signOutFailure)
-// }
-const onClickBox = function (event) {
+const onSignUp = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
-  api.clickBox()
-    .then(ui.clickBoxSuccess)
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
 }
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+const onChangePassword = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+//////////
+// const onMove = function (event) {
+//   const data = getFormFields(this)
+//   api.move(data)
+//     .then(ui.moveSuccess)
+//     .catch(ui.moveFailure)
+// }
+//
+// const onWin = function () {
+//   // flash a "You win!" message
+//   api.win()
+//     .then(ui.winMessage)
+// }
+
 const addHandlers = function () {
-  // $('#sign-up').on('submit', onSignUp)
-  // $('#sign-in').on('submit', onSignIn)
-  // $('#change-password').on('submit', onChangePassword)
-  // $('#sign-out').on('submit', onSignOut)
-  $('#click-box').on('submit', onClickBox)
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#change-password').on('submit', onChangePassword)
+  $('#sign-out').on('submit', onSignOut)
+  $('winLoseMessage').on('')
 }
 
 module.exports = {
   addHandlers
+  // onWin
 }

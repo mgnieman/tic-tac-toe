@@ -1,5 +1,7 @@
 'use strict'
 
+// const events = require('./auth/events')
+
 // rows
 // 0,1,2
 // 3,4,5
@@ -12,11 +14,30 @@
 // 1,4,7
 // 2,5,8
 
-const array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+let array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+let over = false
+
+const startNewGame = function () {
+  const boxesChildren = $('.boxes').children().children()
+  let counter = 0
+  $.each(boxesChildren, function () {
+    $('#box' + counter).html(counter)
+    counter++
+  })
+  array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  return array
+}
+
+const winMessage = function () {
+  $('#winLoseMessage').text('You win!')
+}
 const same = function (a, b, c) {
   if (a === b && b === c) {
-    console.log('WIN!')
-    return true
+    winMessage()
+    // console.log('startNewGame', startNewGame())
+    startNewGame()
+    over = true
+    return over
   }
 }
 

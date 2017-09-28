@@ -32,22 +32,38 @@ const countOs = function (arr) {
   }
   return oCount
 }
-function chooseLetter (event) {
+const chooseLetter = function (event) {
   countXs()
   countOs()
-  if (countXs() === countOs()) {
-    $(event.target).html('X')
-    array[event.target.id.charAt(3)] = 'X'
-    console.log(event.target.id.charAt(3))
-    logic.checkForWin()
+  if ($(event.target).html() === 'X' || $(event.target).html() === 'O') {
+    console.log(event.target)
   } else {
-    $(event.target).html('O')
-    array[event.target.id.charAt(3)] = 'O'
-    console.log(event.target.id.charAt(3))
-    logic.checkForWin()
+    if (countXs() === countOs()) {
+      $(event.target).html('X')
+      array[event.target.id.charAt(3)] = 'X'
+      // console.log(event.target.id.charAt(3))
+      logic.checkForWin()
+    } else {
+      $(event.target).html('O')
+      array[event.target.id.charAt(3)] = 'O'
+      // console.log(event.target.id.charAt(3))
+      logic.checkForWin()
+    }
   }
 }
+// const saveMove = function () {
+//   "game": {
+//     "cell": {
+//       "index": 0,
+//       "value": "x"
+//     },
+//     "over": false
+//   }
+// }
+
 $('.box').click(chooseLetter)
+// $('.box').click(saveMove)
+
 $(() => {
   events.addHandlers()
 })

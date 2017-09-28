@@ -4,7 +4,7 @@ const store = require('../store')
 
 const signUp = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sign-up',
+    url: config.apiOrigins.development + '/sign-up',
     method: 'POST',
     data
   })
@@ -12,7 +12,7 @@ const signUp = function (data) {
 
 const signIn = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sign-in',
+    url: config.apiOrigins.development + '/sign-in',
     method: 'POST',
     data
   })
@@ -20,7 +20,7 @@ const signIn = function (data) {
 const changePassword = function (data) {
   // console.log(store.user)
   return $.ajax({
-    url: config.apiOrigin + '/change-password/' + store.user.id,
+    url: config.apiOrigins.development + '/change-password/' + store.user.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -30,24 +30,17 @@ const changePassword = function (data) {
 }
 const signOut = function () {
   return $.ajax({
-    url: config.apiOrigin + '/sign-out/' + store.user.id,
+    url: config.apiOrigins.development + '/sign-out/' + store.user.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
-const clickBox = function () {
-  return $.ajax({
-    url: config.apiOrigin + '/click-box',
-    method: 'POST'
-  }
-  )
-}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut,
-  clickBox
+  signOut
 }

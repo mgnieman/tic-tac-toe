@@ -40,9 +40,11 @@ const signOutFailure = function (error) {
   console.error(error)
   $('#message').text('Error signing out')
 }
-const clickBoxSuccess = function () {
-  $('box0').text('X')
-}
+// const winMessage = function () {
+//   console.log('You win!')
+//   $('#winLoseMessage').text('You win!')
+// }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -51,6 +53,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure,
-  clickBoxSuccess
+  signOutFailure
+  // winMessage
 }
