@@ -27,17 +27,18 @@ const startNewGame = function () {
   return array
 }
 
-const winMessage = function () {
-  return $('#winLoseMessage').text('You win!')
+const winMessage = function (xOrO) {
+  if (xOrO === 'X') {
+    return $('#winLoseMessage').text('X wins!')
+  } else {
+    return $('#winLoseMessage').text('O wins!')
+  }
 }
-// const drawMessage = function () {
-//   return $('#winLoseMessage').text('Right! We\'ll call it a draw.')
-// }
 
 const same = function (a, b, c) {
   // let over = false
   if (a === b && b === c) {
-    winMessage()
+    winMessage(a)
     startNewGame()
     // over = true
   }

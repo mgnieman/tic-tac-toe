@@ -11,9 +11,8 @@ After much blood, sweat, and foul language emitted, I was able to use the .click
 
 Thu, 9/28
 
-Step 1: display a message stating who won.
-Done.
+Step 1: display a message stating who won, if applicable, or stating that there was a draw.
 
-Also added logic to prevent placing an 'X' or 'O' where one already exists.
+Added logic to prevent placing an 'X' or 'O' where one already exists.
 
 Created all the authentication stuff - sign up, sign in, change password, sign out.
