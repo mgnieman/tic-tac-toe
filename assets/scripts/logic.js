@@ -15,7 +15,6 @@
 // 2,5,8
 
 let array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-let over = false
 
 const startNewGame = function () {
   const boxesChildren = $('.boxes').children().children()
@@ -29,30 +28,42 @@ const startNewGame = function () {
 }
 
 const winMessage = function () {
-  $('#winLoseMessage').text('You win!')
+  return $('#winLoseMessage').text('You win!')
 }
+// const drawMessage = function () {
+//   return $('#winLoseMessage').text('Right! We\'ll call it a draw.')
+// }
+
 const same = function (a, b, c) {
+  // let over = false
   if (a === b && b === c) {
     winMessage()
-    // console.log('startNewGame', startNewGame())
     startNewGame()
-    over = true
-    return over
+    // over = true
   }
+  // console.log('over', over)
+  // return over
 }
 
 const checkForWin = function () {
-  same(array[0], array[1], array[2])
-  same(array[3], array[4], array[5])
-  same(array[6], array[7], array[8])
-  same(array[0], array[4], array[8])
-  same(array[2], array[4], array[6])
-  same(array[0], array[3], array[6])
-  same(array[1], array[4], array[7])
-  same(array[2], array[5], array[8])
+  if (
+    same(array[0], array[1], array[2]) ||
+    same(array[3], array[4], array[5]) ||
+    same(array[6], array[7], array[8]) ||
+    same(array[0], array[4], array[8]) ||
+    same(array[2], array[4], array[6]) ||
+    same(array[0], array[3], array[6]) ||
+    same(array[1], array[4], array[7]) ||
+    same(array[2], array[5], array[8])
+  ) {
+    return true
+  } else {
+    return false
+  }
 }
 
 module.exports = {
   array,
-  checkForWin
+  checkForWin,
+  startNewGame
 }

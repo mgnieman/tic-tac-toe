@@ -32,11 +32,20 @@ const countOs = function (arr) {
   }
   return oCount
 }
+
+const checkForDraw = function () {
+  if (countXs() + countOs() === 9 && logic.checkForWin() === false) {
+    $('#winLoseMessage').text('Right! We\'ll call it a draw.')
+    logic.startNewGame()
+  }
+}
+
 const chooseLetter = function (event) {
   countXs()
   countOs()
+
   if ($(event.target).html() === 'X' || $(event.target).html() === 'O') {
-    console.log(event.target)
+    // do nothing
   } else {
     if (countXs() === countOs()) {
       $(event.target).html('X')
@@ -50,6 +59,7 @@ const chooseLetter = function (event) {
       logic.checkForWin()
     }
   }
+  checkForDraw()
 }
 // const saveMove = function () {
 //   "game": {

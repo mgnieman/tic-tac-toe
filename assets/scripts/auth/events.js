@@ -32,7 +32,7 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
-//////////
+/// ///////
 // const onMove = function (event) {
 //   const data = getFormFields(this)
 //   api.move(data)
