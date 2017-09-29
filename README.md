@@ -21,3 +21,7 @@ Created all the authentication stuff - sign up, sign in, change password, sign o
 Fri, 9/29
 
 Added a "Play again?" button.  Unfortunately, it displays at all times.  If I have time, that's one of the first things I'll fix.  I did make a fix while implementing the button however.  Previously, when the game ended it would restart automatically.  Now the X's & O's remain displayed until the "Play again?" button is selected.  Huge improvement.
+
+Board is now hidden when user first lands on the page.  Upon successful login, the board is displayed.
+
+I'm now saving every move in the API.  The data object contains gameId, username/email & over (true or false - meaning the game is over or still in progress).

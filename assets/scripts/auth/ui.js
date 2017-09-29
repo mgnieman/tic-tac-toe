@@ -56,12 +56,20 @@ const signOutFailure = function (error) {
 const newGameSuccess = function (data) {
   console.log(data)
   console.log(logic.startNewGame())
-  index.countXs([])
-  index.countOs([])
+  store.gameId = data.game.id
+    // $('.box').show()
+  // index.countXs([])
+  // index.countOs([])
 }
 const newGameFailure = function (error) {
   console.error(error)
   $('#message').text('Error loading new game')
+}
+const storeMoveSuccess = function (data) {
+  console.log(data)
+}
+const storeMoveFailure = function () {
+  console.log('Move not stored')
 }
 
 module.exports = {
@@ -74,5 +82,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  storeMoveSuccess,
+  storeMoveFailure
 }

@@ -45,30 +45,23 @@ const newGame = function () {
     }
   })
 }
-// const move = {
-//   game: {
-//     'cell': {
-//       'index': null,
-//       'value': null
-//     },
-//     'over': null
-//   }
-// }
-// const storeNewMove = function (move) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/:id',
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+
+const storeNewMove = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.gameId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  newGame
-  // storeNewMove
+  newGame,
+  storeNewMove
 }

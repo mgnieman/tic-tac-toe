@@ -15,6 +15,7 @@
 let array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
 const startNewGame = function () {
+  $('.box').show()
   const boxesChildren = $('.boxes').children().children()
   let counter = 0
   $.each(boxesChildren, function () {
@@ -24,7 +25,6 @@ const startNewGame = function () {
   array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   return array
 }
-
 const winMessage = function (xOrO) {
   if (xOrO === 'X') {
     return $('#winLoseMessage').text('X wins!')
@@ -32,16 +32,14 @@ const winMessage = function (xOrO) {
     return $('#winLoseMessage').text('O wins!')
   }
 }
-
 const same = function (a, b, c) {
   // let over = false
   if (a === b && b === c) {
     winMessage(a)
-    // startNewButton()
-    // over = true
+    return true
+  } else {
+    return false
   }
-  // console.log('over', over)
-  // return over
 }
 
 const checkForWin = function () {
