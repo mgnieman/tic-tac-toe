@@ -57,9 +57,9 @@ const newGameSuccess = function (data) {
   console.log(data)
   console.log(logic.startNewGame())
   store.gameId = data.game.id
-    // $('.box').show()
-  // index.countXs([])
-  // index.countOs([])
+  // $('.box').show()
+  // index.countXs()
+  // index.countOs()
 }
 const newGameFailure = function (error) {
   console.error(error)

@@ -1,5 +1,7 @@
 'use strict'
 
+const index = require('./index.js')
+
 // rows
 // 0,1,2
 // 3,4,5
@@ -23,6 +25,8 @@ const startNewGame = function () {
     counter++
   })
   array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  index.resetGame()
+  console.log('value of array', array)
   return array
 }
 const winMessage = function (xOrO) {

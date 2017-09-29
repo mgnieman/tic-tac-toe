@@ -8,14 +8,17 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
 const logic = require('./logic.js')
-const array = logic.array
-const api = require('./auth/api.js')
+let array = logic.array
+// const api = require('./auth/api.js')
 
 $(() => {
   setAPIOrigin(location, config)
 })
 
-const countXs = function (arr) {
+function resetGame () {
+  array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+const countXs = function () {
   let xCount = 0
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 'X') {
@@ -24,7 +27,7 @@ const countXs = function (arr) {
   }
   return xCount
 }
-const countOs = function (arr) {
+const countOs = function () {
   let oCount = 0
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 'O') {
@@ -54,11 +57,11 @@ const chooseLetter = function (event) {
   }
   countXs()
   countOs()
-  console.log('called chooseLetter')
   if ($(event.target).html() === 'X' || $(event.target).html() === 'O') {
     // do nothing
   } else {
     move.game.cell.index = $(event.target).html()
+    // debugger
     if (countXs() === countOs()) {
       $(event.target).html('X')
       array[event.target.id.charAt(3)] = 'X'
@@ -87,7 +90,11 @@ const chooseLetter = function (event) {
 
 $('.box').click(chooseLetter)
 // $('.box').click(saveMove)
-
 $(() => {
   events.addHandlers()
 })
+module.exports = {
+  countXs,
+  countOs,
+  resetGame
+}
