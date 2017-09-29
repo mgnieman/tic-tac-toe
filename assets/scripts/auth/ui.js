@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store')
+const logic = require('../logic.js')
+const index = require('../index.js')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -40,17 +42,26 @@ const signOutFailure = function (error) {
   console.error(error)
   $('#message').text('Error signing out')
 }
+// // disalbe clicks in boxes
+// document.getElementById('box0').style.pointerEvents = 'none'
+// document.getElementById('box1').style.pointerEvents = 'none'
+// document.getElementById('box2').style.pointerEvents = 'none'
+// document.getElementById('box3').style.pointerEvents = 'none'
+// document.getElementById('box4').style.pointerEvents = 'none'
+// document.getElementById('box5').style.pointerEvents = 'none'
+// document.getElementById('box6').style.pointerEvents = 'none'
+// document.getElementById('box7').style.pointerEvents = 'none'
+// document.getElementById('box8').style.pointerEvents = 'none'
 
-const newGameSuccess = function () {
-  console.log('New game')
-  // $('#message').text('You have successfully signed out')
-
-  // startNewGame()
-  store.user = null
+const newGameSuccess = function (data) {
+  console.log(data)
+  console.log(logic.startNewGame())
+  index.countXs([])
+  index.countOs([])
 }
 const newGameFailure = function (error) {
   console.error(error)
-  $('#message').text('Error signing out')
+  $('#message').text('Error loading new game')
 }
 
 module.exports = {

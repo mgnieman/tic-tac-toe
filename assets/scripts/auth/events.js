@@ -38,6 +38,12 @@ const startNewButton = function (event) {
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
 }
+// const onStoreNewMove = function () {
+//   event.preventDefault()
+//   api.storeNewMove()
+//     .then()
+//     .catch()
+// }
 
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
@@ -45,10 +51,10 @@ const addHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   // $('winLoseMessage').on('')
-  $('#new-game').on('', startNewButton)
+  $('#new-game').on('click', startNewButton)
+  // $('').on('click', onStoreNewMove)
 }
 
 module.exports = {
   addHandlers
-  // onWin
 }

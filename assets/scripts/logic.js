@@ -1,7 +1,5 @@
 'use strict'
 
-// const events = require('./auth/events')
-
 // rows
 // 0,1,2
 // 3,4,5
@@ -39,7 +37,7 @@ const same = function (a, b, c) {
   // let over = false
   if (a === b && b === c) {
     winMessage(a)
-    startNewButton()
+    // startNewButton()
     // over = true
   }
   // console.log('over', over)
