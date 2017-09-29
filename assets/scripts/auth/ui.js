@@ -40,10 +40,18 @@ const signOutFailure = function (error) {
   console.error(error)
   $('#message').text('Error signing out')
 }
-// const winMessage = function () {
-//   console.log('You win!')
-//   $('#winLoseMessage').text('You win!')
-// }
+
+const newGameSuccess = function () {
+  console.log('New game')
+  // $('#message').text('You have successfully signed out')
+
+  // startNewGame()
+  store.user = null
+}
+const newGameFailure = function (error) {
+  console.error(error)
+  $('#message').text('Error signing out')
+}
 
 module.exports = {
   signUpSuccess,
@@ -53,6 +61,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
-  // winMessage
+  signOutFailure,
+  newGameSuccess,
+  newGameFailure
 }

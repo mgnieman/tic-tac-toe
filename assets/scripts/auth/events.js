@@ -32,26 +32,20 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
-/// ///////
-// const onMove = function (event) {
-//   const data = getFormFields(this)
-//   api.move(data)
-//     .then(ui.moveSuccess)
-//     .catch(ui.moveFailure)
-// }
-//
-// const onWin = function () {
-//   // flash a "You win!" message
-//   api.win()
-//     .then(ui.winMessage)
-// }
+const startNewButton = function (event) {
+  event.preventDefault()
+  api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
 
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('winLoseMessage').on('')
+  // $('winLoseMessage').on('')
+  $('#new-game').on('', startNewButton)
 }
 
 module.exports = {

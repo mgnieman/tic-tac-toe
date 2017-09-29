@@ -36,7 +36,7 @@ const countOs = function (arr) {
 const checkForDraw = function () {
   if (countXs() + countOs() === 9 && logic.checkForWin() === false) {
     $('#winLoseMessage').text('Right! We\'ll call it a draw.')
-    logic.startNewGame()
+    logic.startNewButton()
   }
 }
 

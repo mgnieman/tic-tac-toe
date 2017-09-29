@@ -11,8 +11,13 @@ After much blood, sweat, and foul language emitted, I was able to use the .click
 
 Thu, 9/28
 
-Step 1: display a message stating who won, if applicable, or stating that there was a draw.
+Step 1: display a message stating who won, if applicable, or stating that there was a draw.x
 
 Added logic to prevent placing an 'X' or 'O' where one already exists.
 
 Created all the authentication stuff - sign up, sign in, change password, sign out.
+
+
+Fri, 9/29
+
+Added a "Play again?" button.  Unfortunately, it displays at all times.  If I have time, that's one of the first things I'll fix.  I did make a fix while implementing the button however.  Previously, when the game ended it would restart automatically.  Now the X's & O's remain displayed until the "Play again?" button is selected.  Huge improvement.

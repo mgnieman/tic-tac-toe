@@ -9,7 +9,6 @@ const signUp = function (data) {
     data
   })
 }
-
 const signIn = function (data) {
   return $.ajax({
     url: config.apiOrigins.development + '/sign-in',
@@ -38,9 +37,18 @@ const signOut = function () {
   })
 }
 
+const newGame = function () {
+  return $.ajax({
+    // url: config.apiOrigins.development + '/sign-up',
+    method: 'POST',
+
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  newGame
 }

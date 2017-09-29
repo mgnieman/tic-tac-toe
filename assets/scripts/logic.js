@@ -39,7 +39,7 @@ const same = function (a, b, c) {
   // let over = false
   if (a === b && b === c) {
     winMessage(a)
-    startNewGame()
+    startNewButton()
     // over = true
   }
   // console.log('over', over)
