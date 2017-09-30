@@ -25,3 +25,8 @@ Added a "Play again?" button.  Unfortunately, it displays at all times.  If I ha
 Board is now hidden when user first lands on the page.  Upon successful login, the board is displayed.
 
 I'm now saving every move in the API.  The data object contains gameId, username/email & over (true or false - meaning the game is over or still in progress).
+
+
+Sat, 9/30
+
+Added a "Total Games Played" button that displays the total number of games played by a particular user.

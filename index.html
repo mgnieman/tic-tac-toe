@@ -15,7 +15,6 @@
       <h1>Tic-Tac-Toe</h1>
       <div id='winLoseMessage'></div>
       <div id='message'></div>
-      <button id="new-game">New Game</button>
 
       <div class="boxes">
         <div class="row">
@@ -35,37 +34,46 @@
         </div>
       </div>
 
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="Enter Email">
-          <input type="text" name="credentials[password]" placeholder="Enter Password">
-          <input type="text" name="credentials[password_confirmation]" placeholder="Re-Enter Password">
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign in</legend>
-          <input type="text" name="credentials[email]" placeholder="Enter Email">
-          <input type="text" name="credentials[password]" placeholder="Enter Password">
-          <input type="submit" name="submit" value="Sign in">
-        </fieldset>
-      </form>
-      <form id="change-password">
-        <fieldset>
-          <legend>Change password</legend>
-          <input type="text" name="passwords[old]" placeholder="Current Password">
-          <input type="text" name="passwords[new]" placeholder="New Password">
-          <input type="submit" name="submit" value="Update Password">
-        </fieldset>
-      </form>
-      <form id="sign-out">
-        <fieldset>
-          <legend>Sign Out</legend>
-          <input type="submit" name="submit" value="Sign Out">
-        </fieldset>
-      </form>
+      <div class = "signed-in">
+        <button id="new-game">New Game</button>
+        <form id="sign-out">
+          <fieldset>
+            <legend>Sign Out</legend>
+            <input type="submit" name="submit" value="Sign Out">
+          </fieldset>
+        </form>
+
+        <button id="get-games">Total Games Played</button>
+
+        <form id="change-password">
+          <fieldset>
+            <legend>Change password</legend>
+            <input type="text" name="passwords[old]" placeholder="Current Password">
+            <input type="text" name="passwords[new]" placeholder="New Password">
+            <input type="submit" name="submit" value="Update Password">
+          </fieldset>
+        </form>
+      </div>
+
+      <div class = "sign-up-in">
+          <form id="sign-in">
+          <fieldset>
+            <legend>Sign in</legend>
+            <input type="text" name="credentials[email]" placeholder="Enter Email">
+            <input type="text" name="credentials[password]" placeholder="Enter Password">
+            <input type="submit" name="submit" value="Sign in">
+          </fieldset>
+        </form>
+        <form id="sign-up">
+          <fieldset>
+            <legend>Don't have an account? Sign up</legend>
+            <input type="text" name="credentials[email]" placeholder="Enter Email">
+            <input type="text" name="credentials[password]" placeholder="Enter Password">
+            <input type="text" name="credentials[password_confirmation]" placeholder="Re-Enter Password">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+      </div>
 
       <!-- <form>
         <input name="game[cell][index]" type="text" value="O">

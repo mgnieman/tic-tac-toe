@@ -2,10 +2,10 @@
 
 const store = require('../store')
 const logic = require('../logic.js')
-const index = require('../index.js')
+// const index = require('../index.js')
 
 const signUpSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   $('#message').text('Your account has been successfully created')
 }
 const signUpFailure = function (error) {
@@ -14,8 +14,10 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   $('#message').text('You are now signed in')
+  $('.signed-in').show()
+  $('.sign-up-in').hide()
   store.user = data.user
 }
 
@@ -25,7 +27,7 @@ const signInFailure = function (error) {
 }
 
 const changePasswordSuccess = function () {
-  console.log('Your password has been updated')
+  // console.log('Your password has been updated')
   $('#message').text('Your password has been updated')
 }
 const changePasswordFailure = function (error) {
@@ -34,7 +36,7 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccess = function () {
-  console.log('You have successfully signed out')
+  // console.log('You have successfully signed out')
   $('#message').text('You have successfully signed out')
   store.user = null
 }
@@ -54,10 +56,10 @@ const signOutFailure = function (error) {
 // document.getElementById('box8').style.pointerEvents = 'none'
 
 const newGameSuccess = function (data) {
-  console.log(data)
-  console.log(logic.startNewGame())
+  // console.log(data)
+  // logic.startNewGame()
   store.gameId = data.game.id
-  // $('.box').show()
+  $('.box').show()
   // index.countXs()
   // index.countOs()
 }
@@ -72,6 +74,13 @@ const storeMoveFailure = function () {
   console.log('Move not stored')
 }
 
+const getGamesSuccess = function (numGames) {
+  $('#message').text('You have played ' + numGames.games.length + ' games')
+  console.log(numGames)
+}
+const getGamesFailure = function () {
+  console.log('Move not stored')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -84,5 +93,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   storeMoveSuccess,
-  storeMoveFailure
+  storeMoveFailure,
+  getGamesSuccess,
+  getGamesFailure
 }

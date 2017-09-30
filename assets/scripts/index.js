@@ -8,16 +8,16 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
 const logic = require('./logic.js')
-let array = logic.array
+const array = logic.array
 // const api = require('./auth/api.js')
 
 $(() => {
   setAPIOrigin(location, config)
 })
 
-function resetGame () {
-  array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
+// const resetGame = function () {
+//   array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+// }
 const countXs = function () {
   let xCount = 0
   for (let i = 0; i < array.length; i++) {
@@ -45,6 +45,7 @@ const checkForDraw = function () {
     return false
   }
 }
+
 const chooseLetter = function (event) {
   const move = {
     game: {
@@ -57,7 +58,7 @@ const chooseLetter = function (event) {
   }
   countXs()
   countOs()
-  if ($(event.target).html() === 'X' || $(event.target).html() === 'O') {
+  if (logic.checkForWin() || $(event.target).html() === 'X' || $(event.target).html() === 'O') {
     // do nothing
   } else {
     move.game.cell.index = $(event.target).html()
@@ -70,6 +71,7 @@ const chooseLetter = function (event) {
       const draw = checkForDraw()
       const win = logic.checkForWin()
       if (draw || win) {
+        // logic.startNewGame()
         move.game.over = true
       }
     } else {
@@ -80,21 +82,22 @@ const chooseLetter = function (event) {
       const draw = checkForDraw()
       const win = logic.checkForWin()
       if (draw || win) {
+        // logic.startNewGame()
         move.game.over = true
       }
     }
     events.onStoreNewMove(move)
   }
-  console.log(move)
+  // console.log(move)
 }
 
 $('.box').click(chooseLetter)
-// $('.box').click(saveMove)
+$('#new-game').click(logic.startNewGame)
 $(() => {
   events.addHandlers()
 })
 module.exports = {
   countXs,
-  countOs,
-  resetGame
+  countOs
+  // resetGame
 }

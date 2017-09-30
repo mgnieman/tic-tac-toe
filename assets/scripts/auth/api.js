@@ -56,6 +56,15 @@ const storeNewMove = function (data) {
     data
   })
 }
+const getGames = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -63,5 +72,6 @@ module.exports = {
   changePassword,
   signOut,
   newGame,
-  storeNewMove
+  storeNewMove,
+  getGames
 }

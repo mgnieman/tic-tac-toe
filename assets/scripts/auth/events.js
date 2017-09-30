@@ -43,13 +43,19 @@ const onStoreNewMove = function (data) {
     .then(ui.storeMoveSuccess)
     .catch(ui.storeMoveFailure)
 }
-
+const onGetGames = function () {
+  event.preventDefault()
+  api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
+}
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#new-game').on('click', startNewButton)
+  $('#get-games').on('click', onGetGames)
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 'use strict'
 
-const index = require('./index.js')
+// const index = require('./index.js')
 
 // rows
 // 0,1,2
@@ -17,18 +17,20 @@ const index = require('./index.js')
 let array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
 const startNewGame = function () {
-  $('.box').show()
+  array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   const boxesChildren = $('.boxes').children().children()
   let counter = 0
   $.each(boxesChildren, function () {
     $('#box' + counter).html(counter)
     counter++
+    // console.log($('#box' + counter).html(counter))
   })
-  array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-  index.resetGame()
-  console.log('value of array', array)
-  return array
+  // index.resetGame()
+  // debugger
+  // console.log('value of array', array)
+  // return array
 }
+
 const winMessage = function (xOrO) {
   if (xOrO === 'X') {
     return $('#winLoseMessage').text('X wins!')
@@ -36,8 +38,8 @@ const winMessage = function (xOrO) {
     return $('#winLoseMessage').text('O wins!')
   }
 }
+
 const same = function (a, b, c) {
-  // let over = false
   if (a === b && b === c) {
     winMessage(a)
     return true
