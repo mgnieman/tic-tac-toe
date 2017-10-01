@@ -1,3 +1,7 @@
+Wirefreames:
+User Stories:  https://docs.google.com/document/d/1uclZv44bZ9w5SOAc8eEJQnL5TsfcuZ2BIxXNMsxZ6WI/edit
+Technologies Used:  JavaScript, jQuery, API, AJAX
+
 Wed, 9/27
 
 First thing I did was write the game logic in logic.js.  I have to manually enter an array, i.e. 'const array = [x, o, o, o, x, o, o, o, o]', and my code will log "true" or "false" for each of the 8 possible winning combinations (3 rows, 3 columns & 2 diagonals.)
