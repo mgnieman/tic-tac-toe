@@ -1,4 +1,7 @@
-Wirefreames:
+GitHub Repository: https://github.com/mgnieman/tic-tac-toe
+  This is where the files for my tic-tac-toe game are stored.
+Link to Game: https://mgnieman.github.io/tic-tac-toe/
+Wirefreames: https://imgur.com/a/Cl9Hl
 User Stories:  https://docs.google.com/document/d/1uclZv44bZ9w5SOAc8eEJQnL5TsfcuZ2BIxXNMsxZ6WI/edit
 Technologies Used:  JavaScript, jQuery, API, AJAX
 
@@ -34,3 +37,7 @@ I'm now saving every move in the API.  The data object contains gameId, username
 Sat, 9/30
 
 Added a "Total Games Played" button that displays the total number of games played by a particular user.
+
+Sun, 9/31
+
+Finally solved the problem caused by calling boxArray from a different file than that in which it was originally declared.  Learned that this is called a stale reference.  Created a getter function in order to ensure that boxArray always returns the newest version.

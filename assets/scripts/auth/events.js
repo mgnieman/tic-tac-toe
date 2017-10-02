@@ -31,6 +31,7 @@ const onSignOut = function (event) {
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
+  $('#winLoseMessage').hide()
 }
 const startNewButton = function (event) {
   event.preventDefault()

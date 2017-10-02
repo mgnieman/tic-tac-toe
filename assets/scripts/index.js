@@ -8,17 +8,12 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
 const logic = require('./logic.js')
-const array = logic.array
-// const api = require('./auth/api.js')
 
 $(() => {
   setAPIOrigin(location, config)
 })
 
-// const resetGame = function () {
-//   array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-// }
-const countXs = function () {
+const countXs = function (array) {
   let xCount = 0
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 'X') {
@@ -27,7 +22,7 @@ const countXs = function () {
   }
   return xCount
 }
-const countOs = function () {
+const countOs = function (array) {
   let oCount = 0
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 'O') {
@@ -38,8 +33,9 @@ const countOs = function () {
 }
 
 const checkForDraw = function () {
-  if (countXs() + countOs() === 9 && logic.checkForWin() === false) {
-    $('#winLoseMessage').text('Right! We\'ll call it a draw.')
+  const boxArray = logic.getBoxArray()
+  if (countXs(boxArray) + countOs(boxArray) === 9 && logic.checkForWin() === false) {
+    $('#winLoseMessage').text('Right! We\'ll call it a draw.').show()
     return true
   } else {
     return false
@@ -47,6 +43,7 @@ const checkForDraw = function () {
 }
 
 const chooseLetter = function (event) {
+  const boxArray = logic.getBoxArray()
   const move = {
     game: {
       'cell': {
@@ -56,16 +53,14 @@ const chooseLetter = function (event) {
       'over': false
     }
   }
-  countXs()
-  countOs()
   if (logic.checkForWin() || $(event.target).html() === 'X' || $(event.target).html() === 'O') {
     // do nothing
   } else {
     move.game.cell.index = $(event.target).html()
     // debugger
-    if (countXs() === countOs()) {
+    if (countXs(boxArray) === countOs(boxArray)) {
       $(event.target).html('X')
-      array[event.target.id.charAt(3)] = 'X'
+      boxArray[event.target.id.charAt(3)] = 'X'
       move.game.cell.value = 'x'
       // console.log(event.target.id.charAt(3))
       const draw = checkForDraw()
@@ -76,7 +71,7 @@ const chooseLetter = function (event) {
       }
     } else {
       $(event.target).html('O')
-      array[event.target.id.charAt(3)] = 'O'
+      boxArray[event.target.id.charAt(3)] = 'O'
       move.game.cell.value = 'o'
       // console.log(event.target.id.charAt(3))
       const draw = checkForDraw()
@@ -86,13 +81,14 @@ const chooseLetter = function (event) {
         move.game.over = true
       }
     }
+    console.log('boxArray', boxArray)
+    // console.log('checkForWin', logic.checkForWin())
     events.onStoreNewMove(move)
   }
   // console.log(move)
 }
 
 $('.box').click(chooseLetter)
-$('#new-game').click(logic.startNewGame)
 $(() => {
   events.addHandlers()
 })
