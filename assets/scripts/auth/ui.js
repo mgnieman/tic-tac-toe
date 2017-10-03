@@ -17,16 +17,16 @@ const signInSuccess = function (data) {
   store.user = data.user
 }
 
-const signInFailure = function (error) {
-  console.error(error)
+const signInFailure = function () {
+  // console.error(error)
   $('#message').text('Error on sign in')
 }
 
 const changePasswordSuccess = function () {
   $('#message').text('Your password has been updated')
 }
-const changePasswordFailure = function (error) {
-  console.error(error)
+const changePasswordFailure = function () {
+  // console.error(error)
   $('#message').text('Error changing password')
 }
 const signOutSuccess = function () {
@@ -35,8 +35,8 @@ const signOutSuccess = function () {
   $('.sign-up-in').show()
   store.user = null
 }
-const signOutFailure = function (error) {
-  console.error(error)
+const signOutFailure = function () {
+  // console.error(error)
   $('#message').text('Error signing out')
 }
 const newGameSuccess = function (data) {
@@ -45,8 +45,8 @@ const newGameSuccess = function (data) {
   // index.countXs()
   // index.countOs()
 }
-const newGameFailure = function (error) {
-  console.error(error)
+const newGameFailure = function () {
+  // console.error(error)
   $('#message').text('Error loading new game')
 }
 const storeMoveSuccess = function (data) {
