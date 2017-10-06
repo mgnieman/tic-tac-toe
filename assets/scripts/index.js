@@ -81,7 +81,7 @@ const chooseLetter = function (event) {
         move.game.over = true
       }
     }
-    console.log('boxArray', boxArray)
+    // console.log('boxArray', boxArray)
     // console.log('checkForWin', logic.checkForWin())
     events.onStoreNewMove(move)
   }

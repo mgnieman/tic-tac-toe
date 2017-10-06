@@ -4,9 +4,10 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   $('#message').text('Your account has been successfully created')
+  $('#sign-up').hide()
 }
-const signUpFailure = function (error) {
-  console.error(error)
+const signUpFailure = function () {
+  // console.error(error)
   $('#message').text('Something went wrong, please try again')
 }
 
@@ -33,6 +34,7 @@ const signOutSuccess = function () {
   $('#message').text('You have successfully signed out')
   $('.signed-in').hide()
   $('.sign-up-in').show()
+  $('.boxes').hide()
   store.user = null
 }
 const signOutFailure = function () {
@@ -49,18 +51,20 @@ const newGameFailure = function () {
   // console.error(error)
   $('#message').text('Error loading new game')
 }
-const storeMoveSuccess = function (data) {
-  console.log(data)
+const storeMoveSuccess = function () {
+  // console.log(data)
 }
 const storeMoveFailure = function () {
-  console.log('Move not stored')
+  // console.log('Move not stored')
+  $('#message').text('Move not stored')
 }
 const getGamesSuccess = function (numGames) {
   $('#message').text('You have played ' + numGames.games.length + ' games')
-  console.log(numGames)
+  // console.log(numGames)
 }
 const getGamesFailure = function () {
-  console.log('Move not stored')
+  // console.log('Move not stored')
+  $('#message').text('Move not stored')
 }
 module.exports = {
   signUpSuccess,
