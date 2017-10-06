@@ -7,8 +7,11 @@ Technologies Used:  JavaScript, jQuery, API, AJAX
 
 Future Enhancements:
   - When user selects “New Game” hide “You are now signed in”
-  - The chooseLetter function (in index.js) is big & ugly.  Pull some of the duplicate items out and create a function to perform these actions; then call that function twice inside chooseLetter - once for X, once for O items out and create a function to perform these actions; then call that function twice inside chooseLetter - once for X, once for O
+  - The `chooseLetter` function (in index.js) is big & ugly.  Pull some of the duplicate items out and create a function to perform these actions; then call that function twice inside `chooseLetter` - once for X, once for O items out and create a function to perform these actions; then call that function twice inside `chooseLetter` - once for X, once for O
   - Remove numbers from cells
+  - As part of refactoring `chooseLetter`:
+    - move the customer facing items to ui.js, i.e. `$(event.target).html('X')`
+    - call `events.onStoreNewMove(move)` FIRST, then make a call to ui.js
 
 Wed, 9/27
 
@@ -18,7 +21,7 @@ Next I used index.html & index.scss to build the 3x3 grid, viewable in a browser
 
 Then I added .click() to index.js so that, when the user clicks in a certain box, "you clicked box[]" logs to the console.
 
-After much blood, sweat, and foul language emitted, I was able to use the .click function mentioned above to write a function (called chooseLetter) that places an X, then O, then X, etc.  I then used the the game logic that I wrote at the very beginning to log "WIN!" in the console if there are 3 X's or 3 O's in a row.
+After much blood, sweat, and foul language emitted, I was able to use the .click function mentioned above to write a function (called `chooseLetter`) that places an X, then O, then X, etc.  I then used the the game logic that I wrote at the very beginning to log "WIN!" in the console if there are 3 X's or 3 O's in a row.
 
 
 Thu, 9/28

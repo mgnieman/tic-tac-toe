@@ -4,7 +4,7 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   $('#message').text('Your account has been successfully created')
-  $('#sign-up').hide()
+  // $('#sign-up').hide()
 }
 const signUpFailure = function () {
   // console.error(error)
