@@ -39,6 +39,7 @@ const startNewGame = function () {
     $('#box' + counter).html(counter)
     counter++
   })
+  $('.boxes').show()
 }
 
 const same = function (a, b, c) {
